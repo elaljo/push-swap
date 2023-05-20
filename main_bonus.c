@@ -53,13 +53,7 @@ void	convert_stackstr_to_stackarr(t_data *data)
 	free(data->stardnums);
 	check_duplicate_num(data);
 	data->stack_b = malloc(sizeof(int) * data->stack_a_size);
-	if (deja_sorted(data) == 1)
-		sort_em(data);
-	else
-	{
-		free_a_b(data);
-		exit (0);
-	}
+	sort_em(data);
 }
 
 void	sort_em(t_data *data)

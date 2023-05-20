@@ -17,6 +17,12 @@ void	sort_100(t_data *data)
 	init_copy_stack_a(data);
 	sort_the_copy(data);
 	range_100(data);
+	int i = 0;
+	while (i < 12)
+	{
+		printf("----------%d\n", data->stack_b[i]);
+		i++;
+	}
 	find_biggest_number_in_stack_b(data);
 	push_biggest_num_to_a(data);
 	free(data->stack_a_copy);
@@ -42,6 +48,7 @@ void	range_100(t_data *data)
 	int	range;
 
 	range = 19;
+	top = 0;
 	i = 0;
 	while (data->stack_a_size)
 	{
