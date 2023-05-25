@@ -21,7 +21,7 @@ void	ra(t_data *data)
 	last_index_a = data->stack_a_size - 1;
 	i = 0;
 	tmp = data->stack_a[0];
-	while (i < data->stack_a_size - 1)
+	while (i < data->stack_a_size)
 	{
 		data->stack_a[i] = data->stack_a[i + 1];
 		i++;
@@ -38,7 +38,7 @@ void	rb(t_data *data)
 	last_index_b = data->stack_b_size - 1;
 	tmp = data->stack_b[0];
 	i = 0;
-	while (i < data->stack_b_size - 1)
+	while (i < data->stack_b_size)
 	{
 		data->stack_b[i] = data->stack_b[i + 1];
 		i++;

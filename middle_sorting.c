@@ -16,13 +16,7 @@ void	sort_100(t_data *data)
 {
 	init_copy_stack_a(data);
 	sort_the_copy(data);
-	range_100(data);
-	int i = 0;
-	while (i < 12)
-	{
-		printf("----------%d\n", data->stack_b[i]);
-		i++;
-	}
+	range_100(data, 19, 0);
 	find_biggest_number_in_stack_b(data);
 	push_biggest_num_to_a(data);
 	free(data->stack_a_copy);
@@ -32,7 +26,7 @@ void	init_copy_stack_a(t_data *data)
 {
 	int	i;
 
-	data->stack_a_copy = malloc(sizeof(int) * data->stack_a_size * 2);
+	data->stack_a_copy = malloc(sizeof(int) * data->stack_a_size);
 	i = 0;
 	while (i < data->stack_a_size)
 	{
@@ -41,15 +35,12 @@ void	init_copy_stack_a(t_data *data)
 	}
 }
 
-void	range_100(t_data *data)
+void	range_100(t_data *data, int range, int i)
 {
 	int	top;
-	int	i;
-	int	range;
+	int	size;
 
-	range = 19;
-	top = 0;
-	i = 0;
+	size = data->stack_a_size;
 	while (data->stack_a_size)
 	{
 		top = data->stack_a[0];
@@ -60,7 +51,8 @@ void	range_100(t_data *data)
 			i++;
 			range++;
 		}
-		else if (top > data->stack_a_copy[i] && top < data->stack_a_copy[range])
+		else if (top > data->stack_a_copy[i]
+			&& check_r(top, data->stack_a_copy, range, size))
 		{
 			pb(data);
 			i++;

@@ -16,20 +16,18 @@ void	sort_500(t_data *data)
 {
 	init_copy_stack_a(data);
 	sort_the_copy(data);
-	range_500(data);
+	range_500(data, 39, 0);
 	find_biggest_number_in_stack_b(data);
 	push_biggest_num_to_a(data);
 	free(data->stack_a_copy);
 }
 
-void	range_500(t_data *data)
+void	range_500(t_data *data, int range, int i)
 {
 	int	top;
-	int	i;
-	int	range;
+	int	size;
 
-	range = 39;
-	i = 0;
+	size = data->stack_a_size;
 	while (data->stack_a_size)
 	{
 		top = data->stack_a[0];
@@ -40,13 +38,23 @@ void	range_500(t_data *data)
 			range++;
 			i++;
 		}
-		else if (top > data->stack_a_copy[i] && top < data->stack_a_copy[range])
+		else if (top > data->stack_a_copy[i]
+			&& check_r(top, data->stack_a_copy, range, size))
 		{
 			pb(data);
-			i++;
 			range++;
+			i++;
 		}
 		else
 			ra(data);
 	}
+}
+
+int	check_r(int top, int *stack_a_copy, int range, int size)
+{
+	if (range > size)
+		range = size - 1;
+	if (top < stack_a_copy[range])
+		return (1);
+	return (0);
 }

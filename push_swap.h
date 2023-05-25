@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -33,6 +32,7 @@ typedef struct s_data
 	char	*stardnums;
 }				t_data;
 
+int		check_r(int top, int *stack_a_copy, int range, int size);
 char	**ft_split(char const *s, char c);
 int		count_chars(char const *s, char delimiter, int lens);
 int		count_words(char const *s, char delimiter);
@@ -96,10 +96,10 @@ void	sort_100(t_data *data);
 void	init_copy_stack_a(t_data *data);
 void	sort_the_copy(t_data *data);
 void	swap_num(int num, int to_cmp_num, t_data *data);
-void	range_100(t_data *data);
+void	range_100(t_data *data, int range, int i);
 int		find_biggest_number_in_stack_b(t_data *data);
 void	push_biggest_num_to_a(t_data *data);
 void	sort_500(t_data *data);
-void	range_500(t_data *data);
+void	range_500(t_data *data, int range, int i);
 
 #endif
