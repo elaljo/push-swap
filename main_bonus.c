@@ -76,7 +76,6 @@ void	sort_em(t_data *data)
 	else
 		ft_putstr_fd("KO\n", 1);
 	free_a_b(data);
-	exit (0);
 }
 
 void	check_err_stack_str(char **stack_str, t_data *data)

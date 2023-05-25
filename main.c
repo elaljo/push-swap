@@ -60,10 +60,7 @@ void	convert_stackstr_to_stackarr(t_data *data)
 		free_a_b(data);
 	}
 	else
-	{
 		free_a_b(data);
-		exit (0);
-	}
 }
 
 void	start_sorting(t_data *data)
